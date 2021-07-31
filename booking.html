@@ -1,0 +1,92 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book A Show</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body >
+	<nav>
+
+        <div>
+
+            <a href="main_page.html" class="nav-link relative"> Home</a>
+        </div>
+    </nav>
+
+<form  onsubmit="return validate()" name="book">
+
+<h1>BOOK A SHOW</h1>
+<img src="images/download.jfif">
+<div class="movie-container">
+	<table>
+		<tr>
+		<td>Name</td>
+		<td><input type="text" name="name" placeholder="Enter the name" required>
+		     
+		</tr>
+        <tr>
+            <td>Movies</td>
+            <td>
+            <input type="radio" id="movies" name="moviename" value="Zodiac">
+            <label for="html">Zodiac</label><br>
+            <input type="radio" id="movies" name="moviename" value="Green Mile">
+            <label for="css">Logan</label><br>
+            <input type="radio" id="movies" name="moviename" value="Fight Club">
+            <label for="javascript">Fight Club</label>
+        </td>
+        </tr>
+		
+		<tr>
+		<td>Phone no</td>
+		<td> <input type="tel" name="phone" placeholder="Enter Mobile number" required>
+		</tr>
+		<tr>
+		<td>Show date</td>
+		<td><input type="date" name="showdate"></td>
+		</tr>
+
+		<tr>
+		<td>No of Tickets </td>
+		<td><input type="number" name="tickets" id="tickets" min="1" max="10"></td>
+		</tr>
+
+        <tr>
+		<td><button type="submit" name="Book My Show">Book Show</button></td>
+		<td><button type="reset" name="reset">Reset</button></td>
+		</tr>
+
+        <tr>
+        <td colspan="2">
+        <div  id="result"></div>
+        </td>
+        </tr>
+
+	</table>
+</div>
+	<script>
+	function validate()
+	{
+		var x=document.getElementById("tickets").value;
+		var date=document.book.showdate.value;
+		var currdate=new Date();
+		var curr=Date.parse(currdate.toString());
+		var bookdate=Date.parse(date);
+		var total=x*500;
+
+		if(bookdate<curr)
+		{
+		alert("Show date and time should be either current date or future date");
+	    return false;
+		}
+		
+		document.getElementById("result").innerHTML="Your approximate ticket amount is "+total+" INR";
+	    alert("Your approximate ticket amount is "+total+" INR");
+		}
+	</script>
+</form>
+
+<a href="mailto:anirudh@example.com">Mail Us</a>
+</body>
+</html>
